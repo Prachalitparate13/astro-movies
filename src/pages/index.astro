@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import data from '../data/movie_metadata_with_posters.json'
+import Card from "../components/Card.astro";
+---
+
+<Layout title='Astro Movie'>
+	<!-- <img src="/favicon.svg" alt="image" class="h-72 w-72"/> -->
+	<section class="py-8">
+		<div
+		  class="container mx-auto max-w-screen-lg px-6 flex items-center flex-wrap pt-4 pb-12"
+		>
+		  <h1 class="text-orange-400 font-bold text-3xl tracking-tight mb-12">
+			Movies 
+		  </h1>
+		  <div class="font-bold grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6">
+			{
+				data.map((d:any)=>(
+					<Card title={d.movie_title} director={d.director_name} poster={d.poster} genres={d.genres}
+					/>
+				))
+			}
+		  </div>
+		</div>
+	  </section>
+
+</Layout>

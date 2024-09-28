@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets'
+interface Props {
+	title : string;
+	director: string;
+	poster: string;
+	genres:string;
+}
+const { title, director, poster,genres } = Astro.props;
+---
+
+
+
+<div class="flex flex-col">
+
+	<a href=# class="text-black hover:text-orange-400 focus-visible:ring-2 focus: outline-none focus:ring-black">
+		<div  class=" shadow-md hover:shadow-lg relative">
+			<img class="card-image rounded-md relative z-10 h-96"
+				src={poster}
+				alt={`${title}` }
+				aria-hidden="true"
+				width="400"
+				height="400"
+			/>
+			
+		</div>
+		<div class="pt-4 font-semibold">{title}</div>
+		<span class="sr-only">by</span>
+		<div class=" pt-1 text-gray-600">{director}</div>
+        <div class=" pt-1 text-gray-600 overflow-hidden">{genres}</div>
+	</a>
+</div>
